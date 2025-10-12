@@ -3,7 +3,6 @@
     "scripts": {
         "build": "bash ./build_scripts/build.sh",
         "build:watch": "watchexec -w sources -e move -r 'sui move build --dump-bytecode-as-base64 --ignore-chain > build_artifacts.json 2> build_err.log'",
-        "build:isolated": "ISOLATED=1 bash scripts/build.sh",
         "deploy:watch": "watchexec -e json -w build_artifacts.json -- bash build_scripts/deploy_watch.sh",
         "publish:local": "bash scripts/publish_local.sh",
         "mint": "bash scripts/mint.sh",
