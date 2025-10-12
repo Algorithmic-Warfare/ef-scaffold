@@ -1,0 +1,23 @@
+[package]
+name = "TokenBoilerplate"
+version = "0.0.1"
+published-at = ""
+edition = "2024"
+
+[dependencies]
+Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "main" }
+
+[addresses]
+# Will be rewritten on publish
+admin =  "0x0"
+TokenBoilerplate =  "0x0"
+
+
+# [dev-addresses]
+# admin =  "0xA11CE"
+
+[build]
+# (Removed unsupported 'docs' field causing warnings)
+
+#[lint]
+# Lint configuration placeholder (commented out due to schema warnings)

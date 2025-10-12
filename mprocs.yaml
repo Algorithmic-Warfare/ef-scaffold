@@ -1,0 +1,37 @@
+procs:
+  sui-local:
+    # Local validator with faucet; force fresh ephemeral genesis each start to avoid existing config dir errors
+    cmd: ["yarn", "start:sui"]
+  fund:
+    # Waits for RPC readiness then ensures an address exists and is funded
+    env:
+      FUND_DELAY_SECONDS: "3"   # Delay start to allow local node/faucet to boot
+      MAX_FAUCET_ATTEMPTS: "15" # (Optional) Increase faucet retry attempts
+      MAX_BALANCE_WAIT: "90"    # (Optional) Increase balance poll duration seconds
+    cmd: ["yarn", "fund"]
+  build:hotreload:
+    # Force isolated mode for every build (uses temporary client config)
+    env:
+      ISOLATED: "1"
+    # Execute yarn script from repo root; script itself cds into packages/contracts.
+    cwd: packages/contracts
+    cmd: ["yarn", "build:watch"]
+    autostart: true
+  deploy-watch:hotreload:
+    cwd: packages/contracts
+    # Watches build_artifacts.json and publishes when it changes
+    cmd: ["yarn", "deploy:watch"]
+  move-tests:
+    # Run Move unit tests for the contracts package. Assumes local validator (sui-local) is up.
+    # --path points at the Move package; --force-recompile ensures fresh build after code changes.
+    # Add --filter <test_name_substring> to narrow tests when needed.
+    cwd: packages/contracts
+    # If a deployed PACKAGE_ID is present (.env.local or env var), run tests with rewritten address; else plain unit tests.
+    cmd: ["yarn", "test"]
+    # You can set RUST_LOG=debug here if you want verbose output from the test runner.
+    # env:
+    #   RUST_LOG: debug
+  shell:
+    shell: "${SHELL-bash}"
+    cwd: .
+    stop: SIGKILL
