@@ -74,10 +74,10 @@ module admin::my_token {
     let (builder, treasury) = coin_registry::new_currency_with_otw<MY_TOKEN>(
             MY_TOKEN {},
             9,
-            b"MYTTTT".to_string(),
+            b"MYTTT".to_string(),
             b"My Tokensss".to_string(),
-            b"An example token on SUI blockchain".to_string(),
-            b"https://example.com/token-iconn.png".to_string(),
+            b"An example token on SUI blockchainn".to_string(),
+            b"https://example.com/token-iconnn.png".to_string(),
             ctx
         );
         let metadata_cap = builder.finalize(ctx);

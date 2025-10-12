@@ -13,7 +13,7 @@ fi
 
 PACKAGE_PATH=${1:-packages/contracts}
 
-if [ ! -f "$PACKAGE_PATH/Move.toml" ]; then
+if [ ! -f "./Move.toml" ]; then
   echo "Expected Move.toml in $PACKAGE_PATH, but not found." >&2
   exit 1
 fi
@@ -21,7 +21,7 @@ fi
 echo "Publishing package ($PACKAGE_PATH) to local network (capturing JSON output)..."
 
 # Prefer JSON output for reliable parsing. Capture ONLY stdout (pure JSON) then echo it for visibility.
-if ! PUBLISH_JSON=$(sui client publish --gas-budget 30000000 --skip-dependency-verification --json "$PACKAGE_PATH"); then
+if ! PUBLISH_JSON=$(sui client publish --gas-budget 30000000 --skip-dependency-verification --json ); then
   echo "Publish command failed (non-zero exit)." >&2
   exit 1
 fi

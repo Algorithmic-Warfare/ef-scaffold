@@ -43,9 +43,10 @@ After publish, `.env.local` (written where you run the script) contains at least
 
 ---
 ## Prerequisites
+* Rust (https://rust-lang.org/tools/install/)
 * Sui CLI (https://docs.sui.io) in `PATH`
 * `bash`, `jq`
-* `yarn` (Corepack / Node.js)
+* nodejs (tested with `v20.19`) && `yarn` (Corepack / Node.js)
 * Optional: `docker`, `mprocs`, `watchexec`
 
 Install Node dependencies:
