@@ -7,8 +7,7 @@ package-lock.json
 build/
 Move.lock
 build_artifacts.json
-.env.local
-.env*
+.env
 
 
 # Logs
@@ -16,4 +15,3 @@ build_artifacts.json
 
 # MacOS
 .DS_Store
-# .env
