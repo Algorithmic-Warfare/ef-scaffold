@@ -16,4 +16,4 @@ build_artifacts.json
 
 # MacOS
 .DS_Store
-.env
+# .env
