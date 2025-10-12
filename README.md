@@ -2,6 +2,8 @@
 
 A concise boilerplate for building and testing a `.move` contract system against local network. (Current code purposefully minimal: no custom events, no shared metadata object, and no public `entry` mint wrapper yet.)
 
+
+_Note: This has only been tested in MacOS so far_
 ---
 ## How to set up local network dev env
 1. Install Packages
