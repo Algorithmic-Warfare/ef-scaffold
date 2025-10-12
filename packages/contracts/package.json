@@ -15,7 +15,7 @@
         "lint-staged": "^15.0.0"
     },
     "lint-staged": {
-        "packages/contracts/sources/**/*.move": [
+        "/sources/**/*.move": [
             "sui move format --install",
             "git add"
         ]

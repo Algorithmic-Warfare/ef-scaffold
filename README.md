@@ -7,6 +7,7 @@ A concise boilerplate for building and testing a `.move` contract system against
 1. Install Packages
 ```
 yarn
+cd packages/contracts && yarn
 ```
 
 2. Start Local network + fund address from local faucet + build contracts + deploy contracts.
@@ -20,10 +21,10 @@ yarn start:local
 # 1. Install deps
 yarn
 
-# 2. Start a local validator (terminal A)
-yarn start:local     # wraps build_scripts/start_sui.sh
+# 2. Start a local network 
+yarn start:local
 
-# 3. Fund / import account (terminal B)
+# 3. Fund / import account
 yarn fund          # imports key (see .env) + faucet funding loop
 
 # 4. Build the Move package
@@ -48,7 +49,7 @@ After publish, `.env.local` (written where you run the script) contains at least
 Install Node dependencies:
 ```bash
 yarn
-yarn prepare   # installs husky hooks
+cd packages/contracts && yarn
 ```
 
 ---
