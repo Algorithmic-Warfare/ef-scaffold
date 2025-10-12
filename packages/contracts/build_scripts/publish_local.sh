@@ -46,9 +46,6 @@ if [ -z "$PACKAGE_ID" ] || [ "$PACKAGE_ID" = "null" ]; then
   PACKAGE_ID=$(echo "$PUBLISH_JSON" | grep -Eio 'package[id[:space:]]+0x[0-9a-f]{64}' | grep -Eio '0x[0-9a-f]{64}' | head -n1 || true)
 fi
 
-TREASURY_CAP_ID=$(echo "$PUBLISH_JSON" | grep -i 'TreasuryCap' | grep -Eo '0x[0-9a-f]{64}' | head -n1 || true)
-TOKEN_INFO_ID=$(echo "$PUBLISH_JSON" | grep -i 'TokenInfo' | grep -Eo '0x[0-9a-f]{64}' | head -n1 || true)
-
 if [ -z "$PACKAGE_ID" ]; then
   echo "Failed to parse package id from publish output. See $LOG_FILE for raw output." >&2
   # Do NOT silently succeed; this should remain a hard failure so callers can react.
@@ -57,8 +54,6 @@ fi
 
 cat > .env.local <<EOF
 PACKAGE_ID=$PACKAGE_ID
-TREASURY_CAP_ID=$TREASURY_CAP_ID
-TOKEN_INFO_ID=$TOKEN_INFO_ID
 NAME=$NAME
 SYMBOL=$SYMBOL
 DECIMALS=$DECIMALS
@@ -67,5 +62,3 @@ EOF
 
 echo "Stored deployment info in .env.local"
 echo "PACKAGE_ID=$PACKAGE_ID"
-echo "TREASURY_CAP_ID=$TREASURY_CAP_ID"
-echo "TOKEN_INFO_ID=$TOKEN_INFO_ID"

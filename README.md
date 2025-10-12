@@ -1,9 +1,21 @@
-# Sui Move Token Boilerplate
+# Sui Move Contract Local Dev Environment Scaffold
 
 A concise boilerplate for building and testing a `.move` contract system against local network. (Current code purposefully minimal: no custom events, no shared metadata object, and no public `entry` mint wrapper yet.)
 
 ---
-## TL;DR of Local Build & Publish Workflow
+## How to set up local network dev env
+1. Install Packages
+```
+yarn
+```
+
+2. Start Local network + fund address from local faucet + build contracts + deploy contracts.
+```
+yarn start:local
+```
+
+---
+### TL;DR of Local Build & Publish Workflow
 ```bash
 # 1. Install deps
 yarn
@@ -25,9 +37,6 @@ yarn --cwd packages/contracts test
 ```
 After publish, `.env.local` (written where you run the script) contains at least:
 * `PACKAGE_ID`
-* `TREASURY_CAP_ID`
-
-(Any `TOKEN_INFO_ID` entry can be ignored for now; it is a placeholder field not used by current code.)
 
 ---
 ## Prerequisites
