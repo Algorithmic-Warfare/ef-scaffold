@@ -317,6 +317,24 @@ tools:
         test: "aptos move test"
         publish: "aptos move publish"
 
+# Package manager usage (Yarn workspaces)
+package_management:
+    workspace_tooling: |
+        This repository uses Yarn (classic) with workspaces. Prefer the following commands:
+          - yarn install              # install all workspace dependencies
+          - yarn workspace contracts <script>  # run script in Move contracts package
+          - yarn workspace client dev          # start React client
+          - yarn client:dev                    # convenience root script alias
+          - yarn client:build                  # build client
+        Avoid using npm commands to prevent lockfile drift. Remove package-lock.json if reintroduced.
+    scripts_reference:
+        client_dev: "yarn workspace client dev"
+        client_build: "yarn workspace client build"
+        format_move: "sui move format"
+    notes: |
+        Copilot should suggest Yarn-based commands instead of npm. When generating instructions, prefer:
+        `yarn workspace <name> <script>` for workspace-specific tasks.
+
 # Best practices enforcement
 best_practices:
     - "Always validate inputs at function entry"
