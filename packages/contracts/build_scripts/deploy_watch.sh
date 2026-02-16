@@ -12,7 +12,7 @@ ls
 # Remove previous publication metadata to avoid "must have 0x0 addresses" error
 rm -f Pub.localnet.toml
 
-if sui client test-publish --build-env localnet; then
+if sui client test-publish --build-env localnet --with-unpublished-dependencies; then
     echo "[watch] Build succeeded"
 else
     echo "[watch] Build failed" >&2

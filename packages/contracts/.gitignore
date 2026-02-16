@@ -3,3 +3,5 @@ build/
 node_modules/
 .DS_Store
 .last_publish_*
+
+Pub.localnet.toml
