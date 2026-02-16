@@ -1,7 +1,6 @@
 module TokenBoilerplate::token_tests {
-    use sui::test_scenario::Self as ts;
     use admin::my_token::{Self, MY_TOKEN};
-    use sui::coin::{Coin, TreasuryCap};
+    use sui::{coin::{Coin, TreasuryCap}, test_scenario as ts};
 
     const ADMIN: address = @0x0;
 
