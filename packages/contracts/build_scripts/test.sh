@@ -6,10 +6,12 @@ if [ $? -eq 0 ]; then
     echo Build succeeded;
 else
     echo Build failed;
-    return 1;
+    exit 1
 fi
 
 if ! bash "$PUBLISH_SCRIPT" "$PKG_DIR"; then
     echo "[watch] Publish failed." >&2
-    return 0
-  fi
+    exit 1
+fi
+
+exit 0

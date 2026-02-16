@@ -4,9 +4,9 @@
         "build": "bash ./build_scripts/build.sh",
         "build:watch": "watchexec -w sources -e move -r '",
         "deploy:watch": "watchexec -e json -w build_artifacts.json -- bash build_scripts/deploy_watch.sh",
-        "rebuild:watch": "watchexec -w sources -e move --postpone --debounce 400ms -- bash build_scripts/test.sh",
+        "rebuild:watch": "watchexec -w sources -e move --debounce 400ms -- bash build_scripts/watch_build.sh",
         "publish:local": "bash scripts/publish_local.sh",
-        "test": "sui move test",
+        "test": "sui move test -e testnet",
         "fmt": "sui move format",
         "lint": "echo 'Use move-analyzer in IDE'",
         "prepare": "husky install"

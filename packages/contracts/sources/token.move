@@ -5,7 +5,6 @@ module admin::my_token {
     /// The type identifier of the token
     public struct MY_TOKEN has drop {}
 
-    
 
     /// Module initializer to be executed when this module is published
     fun init(witness: MY_TOKEN, ctx: &mut TxContext) {
@@ -44,6 +43,7 @@ module admin::my_token {
     ) {
         coin::burn(treasury_cap, coin);
     }
+
 
     /// Split a coin into two coins
     public fun split(

@@ -21,7 +21,7 @@ fi
 echo "Publishing package ($PACKAGE_PATH) to local network (capturing JSON output)..."
 
 # Prefer JSON output for reliable parsing. Capture ONLY stdout (pure JSON) then echo it for visibility.
-if ! PUBLISH_JSON=$(sui client publish --gas-budget 30000000 --skip-dependency-verification --json ); then
+if ! PUBLISH_JSON=$(sui client test-publish --gas-budget 30000000 --skip-dependency-verification --json --build-env localnet ); then
   echo "Publish command failed (non-zero exit)." >&2
   exit 1
 fi

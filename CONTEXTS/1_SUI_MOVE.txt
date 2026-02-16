@@ -934,7 +934,6 @@ The output of the `sui client publish` command shows the steps taken, including 
 $ sui client publish --gas-budget 100000000
 UPDATING GIT DEPENDENCY https://github.com/MystenLabs/sui.git
 INCLUDING DEPENDENCY Bridge
-INCLUDING DEPENDENCY DeepBook
 INCLUDING DEPENDENCY SuiSystem
 INCLUDING DEPENDENCY Sui
 INCLUDING DEPENDENCY MoveStdlib
